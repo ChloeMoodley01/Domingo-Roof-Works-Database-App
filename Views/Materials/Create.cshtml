@@ -1,0 +1,65 @@
+﻿@model DomingoApp.Models.MaterialsInformation
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*  (W3schools, 2021) and //(4. Continuation and close off, 2021) *@
+<html>
+<body>
+    <div class="container" style="padding-top:5%">
+        <div class="row">
+            <div class="col-md-12">
+                <div style="background-color: ghostwhite">
+                    <h1 class="text-center">Create a New Material</h1>
+                    <p class="text-center">Please fill out all the following information in the textboxs below. All information is required.</p>
+                    <div class="col-md-6">
+                        <form asp-action="Create">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                            <div class="form-group">
+                                <label asp-for="MaterialsUsed" class="control-label-">Please Enter the Materials Used</label>
+                                <input asp-for="MaterialsUsed" class="form-control" />
+                                <span asp-validation-for="MaterialsUsed" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="JobTypeName" class="control-label">Please Select the Job Type Choosen.</label>
+                                <select asp-for="JobTypeName" class="form-control">
+                                    <option value="Full Conversion">Full Conversion</option>
+                                    <option value="Semi Conversion">Semi Conversion</option>
+                                    <option value="Floor Boarding">Floor Boarding</option>
+                                </select>
+                            </div>
+
+                            <p> </p>
+                            <div class="form-group">
+                                <input type="submit" value="Create Material" class="btn btn-outline-success" />
+                            </div>
+                        </form>
+
+                        @* In-text referencing here, list refererncing is in the pdf *@
+                        @* Figure 6: Gstatic. [2021]. Materials Icon. (Gstatic, 2021)) *@
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxPiO4B1coXjeQcXbatBqTcnHr3fNftHf80A&usqp=CAU" alt="User Image" style="width:200px; height:200px; position:fixed; top:45%; right:25%" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p> </p>
+    <div>
+        <style>
+            .butt {
+                color: #FA8072;
+            }
+        </style>
+        <a class="butt" asp-action="Index">Back to list</a>
+    </div>
+
+</body>
+</html>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

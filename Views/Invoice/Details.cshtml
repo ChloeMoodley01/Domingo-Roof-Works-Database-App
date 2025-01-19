@@ -1,0 +1,65 @@
+﻿@*@model DomingoApp.Models.InvoiceInformation*@
+@model IEnumerable<DomingoApp.Models.InvoiceInformation>
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*  (W3schools, 2021) and //(4. Continuation and close off, 2021) *@
+<html>
+<body>
+    <div class="container" style="padding-top:5%">
+        <div class="row">
+            <div class="col-md-12">
+                <div style="background-color: ghostwhite">
+                    <h1 class="text-center">Invoice Details</h1>
+                    <p class="text-center">If you look below, you can see the Job Card No, the Customer Information, the Job Type, the Employee Information, the Materials Used, the Subtotal, Vat and Total amount that the customer needs to pay..</p>
+                    <div class="col-md-6">
+                        <ul>
+                            @foreach (var inInfo in Model)
+                            {
+                                <li><b><text>JobCardNo: </text></b>@Html.DisplayFor(Model => inInfo.JobCardNo)</li>
+                                <li><b><text>Customer Name: </text></b>@Html.DisplayFor(Model => inInfo.CustomerName)</li>
+                                <li><b><text>Customer Surname: </text></b>@Html.DisplayFor(Model => inInfo.CustomerSurname)</li>
+                                <li><b><text>Customer Address: </text></b>@Html.DisplayFor(Model => inInfo.CustomerAddress)</li>
+                                <li><b><text>Job Type Name: </text></b>@Html.DisplayFor(Model => inInfo.JobTypeName)</li>
+                                <li><b><text>EmployeeID: </text></b>@Html.DisplayFor(Model => inInfo.EmployeeID)</li>
+                                <li><b><text>Employee Name: </text></b>@Html.DisplayFor(Model => inInfo.EmployeeName)</li>
+                                <li><b><text>Employee Surname: </text></b>@Html.DisplayFor(Model => inInfo.EmployeeSurname)</li>
+                                <li><b><text>Materials Used: </text></b>@Html.DisplayFor(Model => inInfo.MaterialsUsed)</li>
+                                <li><b><text>Daily Rate: </text></b>@Html.DisplayFor(Model => inInfo.DailyRate)</li>
+                                <li><b><text>Number of Days: </text></b>@Html.DisplayFor(Model => inInfo.NumOfDays)</li>
+                                <li><b><text>SubTotal: </text></b>@Html.DisplayFor(Model => inInfo.Subtotal)</li>
+                                <li><b><text>VAT: </text></b>@Html.DisplayFor(Model => inInfo.VAT)</li>
+                                <li><b><text>Total: </text></b>@Html.DisplayFor(Model => inInfo.Total)</li>
+                            }
+
+                        </ul>
+                    </div>
+
+                    @* In-text referencing here, list refererncing is in the pdf *@
+                    @* Figure 8: Icon-library. [2018]. Details Icon. (Icon-library, 2018) *@
+                    <img src="data:image/png;base64,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"
+                         alt="User Image" style="width:200px; height:200px; position:fixed; top:50%; right:30%" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p> </p>
+    <div>
+        <style>
+            .butt {
+                color: #FA8072;
+            }
+        </style>
+        <a class="butt" asp-action="Index">Back to list</a>
+    </div>
+
+</body>
+</html>
+
+
+
+

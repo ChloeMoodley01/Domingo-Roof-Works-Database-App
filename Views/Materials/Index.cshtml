@@ -1,0 +1,63 @@
+﻿@model IEnumerable<DomingoApp.Models.MaterialsInformation>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@**This is goting to display all the customer information in a table on the index page*@
+@*  (W3schools, 2021) and //(4. Continuation and close off, 2021) *@
+<html>
+<head>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <h1 style="text-shadow: 8px 8px 5px #FA8072; font-family:Arial">Materials Index</h1>
+    <p>In the table below you can view all the materials used that are in the database, as well as their details.</p>
+    <p><a asp-action="Create" class="btn btn-success"> Add New Materials </a></p>
+
+    <table style="width:100%">
+        <tr>
+            <th>MaterialsID</th>
+            <th>Materials Used Name</th>
+            <th>Job Type Name</th>
+            <th>Read/Update/Delete</th>
+        </tr>
+
+        @foreach (var matInfo in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => matInfo.MaterialsID)</td>
+                <td>@Html.DisplayFor(modelItem => matInfo.MaterialsUsed)</td>
+                <td>@Html.DisplayFor(modelItem => matInfo.JobTypeName)</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@matInfo.MaterialsID" class="btn btn-light">Details</a>
+                    <a asp-action="Update" asp-route-id="@matInfo.MaterialsID" class="btn btn-info">Update</a>
+                    <a asp-action="Delete" asp-route-id="@matInfo.MaterialsID" class="btn btn-primary">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+
+    <style>
+        .butt {
+            color: #FA8072;
+        }
+    </style>
+
+    <div>
+        <a class="butt" asp-area="" asp-controller="Home" asp-action="Index">Back to Home Page</a>
+    </div>
+
+</body>
+</html>
+

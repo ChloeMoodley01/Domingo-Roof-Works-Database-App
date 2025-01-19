@@ -1,0 +1,62 @@
+﻿@model IEnumerable<DomingoApp.Models.EmployeeInformation>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*  (W3schools, 2021) and //(4. Continuation and close off, 2021) *@
+
+@**This is goting to display all the employee information in a table on the index page*@
+<html>
+<head>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <h1 style="text-shadow: 8px 8px 5px #FA8072; font-family:Arial">Employee Index</h1>
+    <p>In the table below you can view all the employees that are in the database, as well as their details. In the last column you have the option to view a employee details, update the employee details or delete the employee details.</p>
+    <p><a asp-action="Create" class="btn btn-success"> Add new Employee </a></p>
+
+    <table style="width:100%">
+        <tr>
+            <th>EmployeeID</th>
+            <th>Employee Name</th>
+            <th>Employee Surname</th>
+            <th>Read/Update/Delete</th>
+        </tr>
+
+        @foreach (var empInfo in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => empInfo.EmployeeID)</td>
+                <td>@Html.DisplayFor(modelItem => empInfo.EmployeeName)</td>
+                <td>@Html.DisplayFor(modelItem => empInfo.EmployeeSurname)</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@empInfo.EmployeeID" class="btn btn-light">Details</a>
+                    <a asp-action="Update" asp-route-id="@empInfo.EmployeeID" class="btn btn-info">Update</a>
+                    <a asp-action="Delete" asp-route-id="@empInfo.EmployeeID" class="btn btn-primary">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+
+    <style>
+        .butt {
+            color: #FA8072;
+        }
+    </style>
+
+    <div>
+        <a class="butt" asp-area="" asp-controller="Home" asp-action="Index">Back to Home Page</a>
+    </div>
+
+</body>
+</html>

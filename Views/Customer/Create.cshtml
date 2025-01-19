@@ -1,0 +1,69 @@
+﻿@model DomingoApp.Models.CustomerInformation
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*  (W3schools, 2021) and //(4. Continuation and close off, 2021) *@
+
+<html>
+<body>
+    <div class="container" style="padding-top:5%">
+        <div class="row">
+            <div class="col-md-12">
+                <div style="background-color: ghostwhite">
+                    <h1 class="text-center">Create a New Customer</h1>
+                    <p class="text-center">Please fill out all the following information in the textboxs below. All information is required.</p>
+                    <div class="col-md-6">
+                        <form asp-action="Create">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                            <div class="form-group">
+                                <label asp-for="CustomerName" class="control-label-">Please Enter the Customer's Name</label>
+                                <input asp-for="CustomerName" class="form-control" />
+                                <span asp-validation-for="CustomerName" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="CustomerSurname" class="control-label">Please Enter the Customer's Surname</label>
+                                <input asp-for="CustomerSurname" class="form-control" />
+                                <span asp-validation-for="CustomerSurname" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="CustomerAddress" class="control-label">Please Enter the Customer's Address</label>
+                                <input asp-for="CustomerAddress" class="form-control" />
+                                <span asp-validation-for="CustomerAddress" class="text-danger"></span>
+                            </div>
+
+                            <p> </p>
+                            <div class="form-group">
+                                <input type="submit" value="Create Customer" class="btn btn-outline-success" />
+                            </div>
+                        </form>
+
+                        @* In-text referencing here, list refererncing is in the pdf *@
+                        @* Figure 2: Findicons. [2021]. Customer Icon. (Findicons, 2021)) *@
+                        <img src="https://findicons.com/files/icons/1994/vista_style_business_and_data/128/users.png" alt="User Image" style="width:200px; height:200px; position:fixed; top:45%; right:25%" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p> </p>
+    <div>
+        <style>
+            .butt {
+                color: #FA8072;
+            }
+        </style>
+        <a class="butt" asp-action="Index">Back to list</a>
+    </div>
+
+</body>
+</html>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

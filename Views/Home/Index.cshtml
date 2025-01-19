@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+
+}
+@*  (W3schools, 2021) and //(4. Continuation and close off, 2021) *@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body style="background-color: #D3D3D3">
+    <div style="font-family:Arial">
+        <p> </p>
+        <p style="text-align:justify">
+            Domingo Roof Works, a closed corporation. Our company is located in Pretoria, in the Gauteng province.
+            We specialise in turning lofts in houses into liveable rooms. Job types vary between simply fitting floorboards to full conversions with dormer windows, electrical fittings and staircases.
+            Multiple employees can work on one job at a time, to make sure our customers get their renovations done as efficently and effectively as possible.
+            Each job will be allocated equipment and materials. Jobs are charged at a rate determined by the job type and how many days are needed to complete the job.
+        </p>
+
+        @* In-text referencing here, list refererncing is in the pdf *@
+        @* Figure 2: Skyrock. [2021]. Before&After Image. (Skyrock, 2021)) *@
+        <div>
+            <img src="~/Images/DomingoBefore.jpg" alt="Picture of a house before renovations" style="width:500px; height:400px; float:left">
+        </div>
+
+        <div>
+            <img src="~/Images/DomingoAfter.jpg" alt="Picture of a house before renovations" style="width: 500px; height: 400px; float: right">
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+﻿@model DomingoApp.Models.CustomerInformation
+@{
+    ViewData["Title"] = "Update";
+}
+
+@*  (W3schools, 2021) and //(4. Continuation and close off, 2021) *@
+<html>
+<body>
+    <div class="container" style="padding-top:5%">
+        <div class="row">
+            <div class="col-md-12">
+                <div style="background-color: ghostwhite">
+                    <h1 class="text-center">Update Customer</h1>
+                    <p class="text-center">Please update any information in the textbox that are provided.</p>
+                    <div class="col-md-6">
+                        <form asp-action="Update">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="CustomerID" />
+
+                            <div class="form-group">
+                                <label asp-for="CustomerName" class="control-label-">Please Enter the Customer's Name</label>
+                                <input asp-for="CustomerName" class="form-control" />
+                                <span asp-validation-for="CustomerName" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="CustomerSurname" class="control-label">Please Enter the Customer's Surname</label>
+                                <input asp-for="CustomerSurname" class="form-control" />
+                                <span asp-validation-for="CustomerSurname" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="CustomerAddress" class="control-label">Please Enter the Customer's Address</label>
+                                <input asp-for="CustomerAddress" class="form-control" />
+                                <span asp-validation-for="CustomerAddress" class="text-danger"></span>
+                            </div>
+
+                            <p> </p>
+                            <div class="form-group">
+                                <input type="submit" value="Update Customer" class="btn btn-outline-info" />
+                            </div>
+                        </form>
+
+                        @* In-text referencing here, list refererncing is in the pdf *@
+                        @* Figure 9: Network. [2011]. Update Icon. (Network, 2021) *@
+                        <img src="data:image/png;base64,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"
+                             alt="User Image" style="width:200px; height:200px; position:fixed; top:45%; right:25%" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p> </p>
+    <div>
+        <style>
+            .butt {
+                color: #FA8072;
+            }
+        </style>
+        <a class="butt" asp-action="Index">Back to list</a>
+    </div>
+
+</body>
+</html>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+

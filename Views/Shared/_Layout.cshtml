@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    @*  (W3schools, 2021) and (Fontsawesome, 2017) *@
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DomingoApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+    <style>
+        .center {
+            padding: 10px;
+            color: #FA8072;
+            text-align: center;
+        }
+
+        .navbar {
+            width: 100%;
+            font-family: Arial;
+            background-image: linear-gradient(#D3D3D3, #CA907E, #FA8072);
+            overflow: auto;
+        }
+
+            .navbar a {
+                float: left;
+                padding: 12px;
+                color: black;
+                text-decoration: none;
+                font-size: 17px;
+            }
+
+                .navbar a:hover {
+                    background-color: #FA8072;
+                }
+
+        .active {
+            background-color: #FA8072;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="center">
+        <h1 style="text-shadow: 8px 8px 10px black ">Domingo Roof Works</h1>
+    </div>
+
+
+    <div class="navbar">
+        <li class="nav-item">
+            <a class="active" asp-area="" asp-controller="Home" asp-action="Index"><i class="fa fa-fw fa-home"></i>Home</a>
+        </li>
+        <li class="nav-item">
+            <a asp-area="" asp-controller="Home" asp-action="Privacy"><i class="fa fa-user-secret" aria-hidden="true"></i>Privacy</a>
+        </li>
+        <li class="nav-item">
+            <a asp-area="" asp-controller="Customer" asp-action="Index"><i class="fa fa-fw fa-user"></i>Customer</a>
+        </li>
+        <li class="nav-item">
+            <a asp-area="" asp-controller="Job" asp-action="Index"><i class="fa fa-list-ol" aria-hidden="true"></i>Job</a>
+        </li>
+        <li class="nav-item">
+            <a asp-area="" asp-controller="Materials" asp-action="Index"><i class="fa fa-tasks" aria-hidden="true"></i> Materials</a>
+        </li>
+        <li class="nav-item">
+            <a asp-area="" asp-controller="JobType" asp-action="Index"><i class="fa fa-briefcase" aria-hidden="true"></i>JobType</a>
+        </li>
+        <li class="nav-item">
+            <a asp-area="" asp-controller="Employee" asp-action="Index"><i class="fa fa-user-circle" aria-hidden="true"></i>Employee</a>
+        </li>
+        <li class="nav-item">
+            <a asp-area="" asp-controller="Invoice" asp-action="Index"><i class="fa fa-credit-card" aria-hidden="true"></i>Invoice</a>
+        </li>
+    </div>
+
+    <div class="container">
+        <main role="main" class="pb-0">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted" style="background-image: linear-gradient(#D3D3D3, #F4ECD6, #FA8072)">
+        <div class="container" style=" color: black; text-align:left">
+            &copy; 2021 - DomingoApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

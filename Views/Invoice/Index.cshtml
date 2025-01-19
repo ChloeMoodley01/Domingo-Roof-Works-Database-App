@@ -1,0 +1,78 @@
+﻿@model IEnumerable<DomingoApp.Models.InvoiceInformation>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*  (W3schools, 2021) and //(4. Continuation and close off, 2021) *@
+@**This is goting to display all the invoice information in a table on the index page*@
+<html>
+<head>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <h1 style="text-shadow: 8px 8px 5px #FA8072; font-family:Arial">Invoice Index</h1>
+    <p>In the table below you can view all the invoices that are in the database.</p>
+    <p><a asp-action="Create" class="btn btn-success"> Add New Invoice </a></p>
+
+    <table style="width:100%">
+        <tr>
+            <th>JobCardNo</th>
+            <th>Customer Name</th>
+            <th>Customer Surname</th>
+            <th>Customer Address</th>
+            <th>Job Type Name</th>
+            <th>Materials Used</th>
+            <th>Daily Rate</th>
+            <th>Number Of Days</th>
+            <th>Subtotal</th>
+            <th>VAT</th>
+            <th>Total</th>
+            <th>Details</th>
+        </tr>
+
+        @foreach (var inInfo in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => inInfo.JobCardNo)</td>
+                <td>@Html.DisplayFor(modelItem => inInfo.CustomerName)</td>
+                <td>@Html.DisplayFor(modelItem => inInfo.CustomerSurname)</td>
+                <td>@Html.DisplayFor(modelItem => inInfo.CustomerAddress)</td>
+                <td>@Html.DisplayFor(modelItem => inInfo.JobTypeName)</td>
+                <td>@Html.DisplayFor(modelItem => inInfo.MaterialsUsed)</td>
+                <td>@Html.DisplayFor(modelItem => inInfo.DailyRate)</td>
+                <td>@Html.DisplayFor(modelItem => inInfo.NumOfDays)</td>
+                <td>@Html.DisplayFor(modelItem => inInfo.Subtotal)</td>
+                <td>@Html.DisplayFor(modelItem => inInfo.VAT)</td>
+                <td>@Html.DisplayFor(modelItem => inInfo.Total)</td>
+
+                <td>
+                    <a asp-action="Details" asp-route-id="@inInfo.JobCardNo" class="btn btn-light">Retreive</a>
+                </td>
+            </tr>
+        }
+    </table>
+
+    <style>
+        .butt {
+            color: #FA8072;
+        }
+    </style>
+
+    <div>
+        <a class="butt" asp-area="" asp-controller="Home" asp-action="Index">Back to Home Page</a>
+    </div>
+
+</body>
+</html>
+
+

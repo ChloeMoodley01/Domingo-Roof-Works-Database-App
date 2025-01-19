@@ -1,0 +1,75 @@
+﻿@model DomingoApp.Models.InvoiceInformation
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*  (W3schools, 2021) and //(4. Continuation and close off, 2021) *@
+<html>
+<body>
+    <div class="container" style="padding-top:5%">
+        <div class="row">
+            <div class="col-md-12">
+                <div style="background-color: ghostwhite">
+                    <h1 class="text-center">Create a New Invoice</h1>
+                    <p class="text-center">Please fill out all the following information in the textboxs below. All information is required.</p>
+                    <div class="col-md-6">
+                        <form asp-action="Create">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                            <div class="form-group">
+                                <label asp-for="JobCardNo" class="control-label-">Please Enter the Customer's JobCardNo.</label>
+                                <input asp-for="JobCardNo" class="form-control" />
+                                <span asp-validation-for="JobCardNo" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="CustomerID" class="control-label">Please Enter the Customer's ID.</label>
+                                <input asp-for="CustomerID" class="form-control" />
+                                <span asp-validation-for="CustomerID" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="EmployeeID" class="control-label">Please Enter the Employee's ID.</label>
+                                <input asp-for="EmployeeID" class="form-control" />
+                                <span asp-validation-for="EmployeeID" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="MaterialsID" class="control-label">Please Enter the Materials ID.</label>
+                                <input asp-for="MaterialsID" class="form-control" />
+                                <span asp-validation-for="MaterialsID" class="text-danger"></span>
+                            </div>
+
+                            <p> </p>
+                            <div class="form-group">
+                                <input type="submit" value="Create Invoice" class="btn btn-outline-success" />
+                            </div>
+                        </form>
+
+                        @* In-text referencing here, list refererncing is in the pdf *@
+                        @* Figure 4: Vectorstock. [2021]. Invoice Icon. (Vectorstock, 2021)) *@
+                        <img src="https://cdn1.vectorstock.com/i/thumbs/30/60/invoice-icon-accounting-document-on-cartoon-style-vector-35093060.jpg"
+                             alt="User Image" style="width:200px; height:200px; position:fixed ; top:45%; right:25%" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p> </p>
+    <div>
+        <style>
+            .butt {
+                color: #FA8072;
+            }
+        </style>
+        <a class="butt" asp-action="Index">Back to list</a>
+    </div>
+
+</body>
+</html>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
