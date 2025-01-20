@@ -13,7 +13,7 @@ namespace DomingoApp.Models
         //local connection string
         string connectionStringProd = "Data Source=LAPTOP-CR8S2VUC;Initial Catalog=DomingoDatabase;Integrated Security=True";
         //azure connection string
-        //string connectionStringProd = "Server=tcp:domingodatabaseserver.database.windows.net,1433;Initial Catalog=DomingoDatabase;Persist Security Info=False;User ID=ChloeMoodley;Password=Harrypotter1!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        
 
         public IEnumerable<EmployeeInformation> GetAllEmployee() //a list method
         {
